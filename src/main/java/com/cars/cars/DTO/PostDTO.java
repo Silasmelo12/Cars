@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-public class CarsDTO {
-    private String _id;
+public class PostDTO {
+
+    private String userId;
+    private String id;
+    private String body;
     private String title;
-    private String brand;
-    private String price;
-    private Integer age;
-    private Integer __v;
+
 }
