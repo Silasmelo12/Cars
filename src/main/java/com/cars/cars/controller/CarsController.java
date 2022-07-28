@@ -1,8 +1,10 @@
 package com.cars.cars.controller;
 
-import com.cars.cars.DTO.CarsDTO;
-import com.cars.cars.client.ClientGetFeignCars;
+import com.cars.cars.domain.Logs;
+import com.cars.cars.requests.CarGetResponseBody;
+import com.cars.cars.requests.CarPostResponseBody;
 import com.cars.cars.requests.CarPostResquestBody;
+import com.cars.cars.service.CarServiceimpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,20 +15,20 @@ import java.util.List;
 @RequestMapping("api")
 public class CarsController {
 
-    private ClientGetFeignCars clientGetFeignCars;
+    private CarServiceimpl carServiceimpl;
 
     @GetMapping("/listCars")
-    public List<CarsDTO> getAllCars(){
-        return clientGetFeignCars.getAllCars();
+    public List<CarGetResponseBody> getAllCars(){
+        return carServiceimpl.listAllApi();
     }
 
     @GetMapping("/logs")
-    public List<CarsDTO> logs(){
-        return clientGetFeignCars.getAllCars();
+    public List<Logs> logs(){
+        return carServiceimpl.listAllLog();
     }
 
     @PostMapping("/createCar")
-    public CarsDTO createCar(@RequestBody CarPostResquestBody car){
-        return clientGetFeignCars.createCar(car);
+    public CarPostResponseBody createCar(@RequestBody CarPostResquestBody car){
+        return carServiceimpl.createCarApi(car);
     }
 }

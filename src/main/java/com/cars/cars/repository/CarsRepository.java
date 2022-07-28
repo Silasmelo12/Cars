@@ -1,11 +1,9 @@
 package com.cars.cars.repository;
 
-import com.cars.cars.domain.Car;
+import com.cars.cars.domain.Logs;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface CarsRepository extends MongoRepository<Car,String> {
+public interface CarsRepository extends MongoRepository<Logs,String> {
 }

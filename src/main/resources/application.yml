@@ -2,13 +2,9 @@ server:
   port: 8080
 
 spring:
-  autoconfigure:
-    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   data:
     mongodb:
       authentication-database: admin
-      username: root
-      password: root
       database: cars
       port: 27017
       host: localhost

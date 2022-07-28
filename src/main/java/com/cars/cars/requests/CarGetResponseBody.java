@@ -1,11 +1,19 @@
 package com.cars.cars.requests;
 
-public class CarPostResquestBody {
-
+public class CarGetResponseBody {
+    private String _id;
     private String title;
     private String brand;
     private String price;
     private Integer age;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getTitle() {
         return title;

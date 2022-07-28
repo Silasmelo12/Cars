@@ -1,13 +1,12 @@
 package com.cars.cars.client;
 
-import com.cars.cars.DTO.CarsDTO;
-import com.cars.cars.DTO.PostDTO;
+import com.cars.cars.requests.CarGetResponseBody;
+import com.cars.cars.requests.CarPostResponseBody;
 import com.cars.cars.requests.CarPostResquestBody;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -15,9 +14,8 @@ import java.util.List;
 public interface ClientGetFeignCars {
 
     @GetMapping(value = "/cars")
-    List<CarsDTO> getAllCars();
+    List<CarGetResponseBody> getAllCars();
 
     @PostMapping(value = "/cars")
-    CarsDTO createCar(@RequestBody CarPostResquestBody car);
-
+    CarPostResponseBody createCar(@RequestBody CarPostResquestBody car);
 }

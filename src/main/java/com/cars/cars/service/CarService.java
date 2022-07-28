@@ -1,18 +1,21 @@
 package com.cars.cars.service;
 
-import com.cars.cars.DTO.CarsDTO;
-import com.cars.cars.domain.Car;
-import com.cars.cars.repository.CarsRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.cars.cars.domain.Logs;
+import com.cars.cars.requests.CarGetResponseBody;
+import com.cars.cars.requests.CarPostResponseBody;
+import com.cars.cars.requests.CarPostResquestBody;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class CarService {
+public interface CarService {
 
-    @Autowired
-    private CarsRepository carsRepository;
-    public void save(String nome,String descr){
-        CarsDTO car = new CarsDTO();
-    }
+    public Logs saveLog(CarPostResponseBody carPostResponseBody);
 
+    public List<Logs> listAllLog();
+
+    public List<CarGetResponseBody> listAllApi();
+
+    public CarPostResponseBody createCarApi(CarPostResquestBody car);
 }
