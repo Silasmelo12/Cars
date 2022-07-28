@@ -23,46 +23,37 @@ public class CarServiceimpl implements CarService{
     private ClientGetFeignCars clientGetFeignCars;
 
     @Override
-    public Logs saveLog(CarPostResponseBody carPostResponseBody){
-
-        Logs logs = new Logs();
-
-        logs.set_id(carPostResponseBody.get_id());
-        logs.setTitle(carPostResponseBody.getTitle());
-        logs.setAge(carPostResponseBody.getAge());
-        logs.setPrice(carPostResponseBody.getPrice());
-        logs.setBrand(carPostResponseBody.getBrand());
-        logs.set__v(carPostResponseBody.get__v());
-        logs.setLocalDate(DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss").format(LocalDateTime.now()));
-
-        Logs logs1 = carsRepository.save(logs);
-
-        return logs1;
-    }
-
-    @Override
     public List<Logs> listAllLog() {
         return carsRepository.findAll();
     }
 
     @Override
     public List<CarGetResponseBody> listAllApi() {
-        System.out.println("Chegou na fase 2");
         List<CarGetResponseBody> list = clientGetFeignCars.getAllCars();
-        System.out.println("Chegou na fase 3"+list.get(0));
         return list;
+    }
 
+    @Override
+    public Logs saveLog(CarPostResponseBody carPostResponseBody){
+
+        Logs logs = new Logs();
+
+        logs.setCar_id(carPostResponseBody.get_id());
+        logs.setLocalDate(DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss").format(LocalDateTime.now()));
+
+        logs = carsRepository.save(logs);
+
+        return logs;
     }
 
     @Override
     public CarPostResponseBody createCarApi(CarPostResquestBody car) {
         CarPostResponseBody carPostResponseBody = new CarPostResponseBody();
         carPostResponseBody = clientGetFeignCars.createCar(car);
+        System.out.println("o ide cadastrado é : "+carPostResponseBody.get_id());
         if (!carPostResponseBody.get_id().isEmpty()){
             saveLog(carPostResponseBody);
         }
-        return clientGetFeignCars.createCar(car);
+        return carPostResponseBody;
     }
-
-
 }

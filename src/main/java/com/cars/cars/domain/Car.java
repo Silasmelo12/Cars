@@ -1,13 +1,7 @@
 package com.cars.cars.domain;
 
-import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
 public class Car {
 
-    @Id
     private String _id;
     private String title;
     private String brand;
