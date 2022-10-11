@@ -57,7 +57,7 @@ Afim consumir esta API, utilizei o **Postman**.
 
    A imagem a seguir ilustra bem o exemplo
 
-   ![This is an image](hthttps://github.com/Silasmelo12/cars/blob/master/imagens/Captura%20de%20tela%202022-10-11%20005454.png)
+   ![This is an image](https://github.com/Silasmelo12/cars/blob/master/imagens/Captura%20de%20tela%202022-10-11%20005454.png)
 
 
 1. Consultar todas as bicicletas
